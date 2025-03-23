@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:task_management/ui/screens/forgot_password_verify_email_screen.dart';
+import 'package:task_management/ui/screens/main_bottom_nav_screen.dart';
 import 'package:task_management/ui/screens/register_screen.dart';
 import 'package:task_management/ui/widgets/screen_background.dart';
 
@@ -57,7 +58,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 height: 10,
               ),
               ElevatedButton(
-                onPressed: () {},
+                onPressed: _onTapSignInButton,
                 child: Icon(
                   Icons.arrow_circle_right_outlined,
                   size: 28,
@@ -87,7 +88,8 @@ class _LoginScreenState extends State<LoginScreen> {
                           TextSpan(
                             text: "Sign Up",
                             style: TextStyle(
-                                color: Colors.green, fontWeight: FontWeight.bold),
+                                color: Colors.green,
+                                fontWeight: FontWeight.bold),
                             recognizer: TapGestureRecognizer()
                               ..onTap = _onTapSignUpButton,
                           ),
@@ -102,12 +104,32 @@ class _LoginScreenState extends State<LoginScreen> {
     );
   }
 
+  void _onTapSignInButton() {
+    Navigator.pushAndRemoveUntil(
+      context,
+      MaterialPageRoute(
+        builder: (context) => MainBottomNavScreen(),
+      ),
+        (predicate) => false,
+    );
+  }
+
   void _onTapForgotPasswordButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordVerifyEmailScreen(),),);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => ForgotPasswordVerifyEmailScreen(),
+      ),
+    );
   }
 
   void _onTapSignUpButton() {
-    Navigator.push(context, MaterialPageRoute(builder: (context) => RegisterScreen(),),);
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => RegisterScreen(),
+      ),
+    );
   }
 
   @override
