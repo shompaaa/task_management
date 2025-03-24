@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/screens/add_new_task_screen.dart';
 import 'package:task_management/ui/widgets/summary_card.dart';
 import 'package:task_management/ui/widgets/task_card.dart';
 
@@ -20,15 +21,19 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
             child: ListView.separated(
               itemCount: 5,
               itemBuilder: (context, index) {
-                return TaskCard();
+                return TaskCard(
+                  taskStatus: TaskStatus.sNew,
+                );
               },
-              separatorBuilder: (context, index) => SizedBox(height: 8,),
+              separatorBuilder: (context, index) => SizedBox(
+                height: 8,
+              ),
             ),
           )
         ],
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: _onTapAddNewTask,
         child: Icon(Icons.add),
       ),
     );
@@ -62,4 +67,15 @@ class _NewTaskScreenState extends State<NewTaskScreen> {
       ),
     );
   }
+
+  void _onTapAddNewTask() {
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => AddNewTaskScreen(),
+      ),
+    );
+  }
 }
+
+

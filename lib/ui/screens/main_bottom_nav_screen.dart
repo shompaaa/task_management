@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:task_management/ui/screens/cancelled_task_screen.dart';
+import 'package:task_management/ui/screens/completed_task_screen.dart';
 import 'package:task_management/ui/screens/new_task_screen.dart';
 import 'package:task_management/ui/screens/progress_task_screen.dart';
 import 'package:task_management/ui/widgets/tm_app_bar.dart';
@@ -16,14 +18,14 @@ class _MainBottomNavScreenState extends State<MainBottomNavScreen> {
   final List<Widget> _screens = [
     NewTaskScreen(),
     ProgressTaskScreen(),
-    NewTaskScreen(),
-    NewTaskScreen(),
+    CompletedTaskScreen(),
+    CancelledTaskScreen(),
   ];
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: TMAppBar(),
+      appBar: TMAppBar(fromProfileScreen: null,),
       body: _screens[_selectedIndex],
       bottomNavigationBar: NavigationBar(
           selectedIndex: _selectedIndex,
