@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:task_management/ui/widgets/screen_background.dart';
 import 'package:task_management/ui/widgets/tm_app_bar.dart';
 
@@ -129,4 +130,4 @@ class _UpdateProfileScreenState extends State<UpdateProfileScreen> {
   void _onTapPhotoPicker() {}
 
 
-}
+  }
